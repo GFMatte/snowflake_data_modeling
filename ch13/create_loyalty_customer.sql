@@ -1,3 +1,4 @@
+-- Create Loyalty Customers
 CREATE TABLE loyalty_customer
 (
  customer_id   number(38,0) NOT NULL,
