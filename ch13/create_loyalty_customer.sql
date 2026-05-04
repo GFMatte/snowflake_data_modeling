@@ -116,5 +116,3 @@ SELECT *
 FROM rename 
 WHERE true
 ;
-
-

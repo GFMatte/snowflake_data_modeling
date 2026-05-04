@@ -380,8 +380,9 @@ EXECUTE TASK tsk_load_dim_customer_t2 ;
 CREATE OR REPLACE TABLE src_customer CLONE src_customer_bak;
 
 
+
 CREATE OR REPLACE DYNAMIC TABLE dyn_customer_t2 
-TARGET_LAG = '10 MINUTE'
+--TARGET_LAG = '10 MINUTE'
 WAREHOUSE = demo_wh
 AS
 SELECT
@@ -489,11 +490,12 @@ FROM (
 )
 ;
 
-
 --load more records
 EXECUTE TASK load_src_customer;
 
-
+alter dynamic table dyn_customer_t2n1 refresh;
+SELECT * FROM dyn_customer_t2n1
+WHERE CUSTOMER_ID = 118248;
 
 /*
 * Type 3

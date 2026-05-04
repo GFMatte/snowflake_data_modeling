@@ -2,7 +2,7 @@ create database demo_tpch;
 
 create schema operations 
 WITH MANAGED ACCESS  
-DATA_RETENTION_TIME_IN_DAYS = 14;
+DATA_RETENTION_TIME_IN_DAYS = 1;
 
 
 

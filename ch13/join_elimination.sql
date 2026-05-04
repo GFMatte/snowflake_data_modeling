@@ -72,6 +72,9 @@ and year(current_date)=2023
 
 
 
+select * from location;
+select* from region_main;
+
 
 
 -- create an incorrect FK reference (to a table with a subset of FK values)
@@ -108,5 +111,8 @@ and rm.region_id is not null
 --avoid cache
 and year(current_date)=2023
 ;
+
+select * from location_bad_fk;
+select* from region_main;
 
 
