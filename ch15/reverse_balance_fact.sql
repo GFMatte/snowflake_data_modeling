@@ -229,6 +229,8 @@ INNER JOIN updates up ON src.sales_order_id = up.sales_order_id
 ;
 
 
+
+
 --load the after-image to the reverse balance table
 MERGE INTO lineitem_rb rb
 --get only latest records from src_lineitem.
@@ -299,7 +301,7 @@ WITH before_records AS (
 				) af 			
 	USING (line_number, sales_order_id)			
 WHERE TRUE 
-AND bf.metadata$action = 'DELETE'  
+AND bf.metadata$action = 'DELETE' 
 )
 --insert the original after image that we updated
 --no changes are required to column values

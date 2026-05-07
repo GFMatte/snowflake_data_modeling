@@ -83,6 +83,7 @@ AS
 );
 
 
+
 CREATE OR REPLACE TEMPORARY TABLE line_deletions AS 
 SELECT a.next_order_load_dt, b.*
 FROM
@@ -183,7 +184,7 @@ MERGE INTO lineitem_rb rb
 USING (SELECT srcl.*, max_asat  FROM src_lineitem  srcl
 --we only want to update the latest record for each order, 
 --so we need to know the asat date for every sales_order_id and its corresponding line items		
-		LEFT JOIN 	(SELECT 
+		LEFT JOIN 	(SELECT 6
 				 sales_order_id, max(asat_dts) max_asat FROM lineitem_rb GROUP BY 1
 				) latest_asat 
 		ON srcl.sales_order_id = latest_asat.sales_order_id
@@ -303,3 +304,7 @@ FROM 	before_records
 ---------------------------------------------------------------------------------------------------------------------
 
  
+SELECT * FROM lineitem_rb
+WHERE SALES_ORDER_ID = 804677
+AND LINE_NUMBER = 35615361
+ORDER BY 2

@@ -273,6 +273,9 @@ WHERE TRUE
 -- Experiment with queries that pivot on varying intervals
 ---------------------------------------------------------------------------------------------------------------------
 
+SELECT * FROM EMPLOYEE_T2
+WHERE EMPLOYEE_ID = 47215173;
+
 --currently active employees 
 SELECT COUNT(*) cnt FROM employee_t2 
 WHERE TRUE 
@@ -287,7 +290,7 @@ FROM employee_t2
 WHERE TRUE 
 AND is_active
 AND from_date <= '1995-12-01'  
-AND to_date >= '1995-12-01'    
+AND to_date >= '1995-12-01'  
 ;
 
 
