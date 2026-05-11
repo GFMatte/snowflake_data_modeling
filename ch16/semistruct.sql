@@ -264,6 +264,7 @@ __load_dts
 )
 ;
 
+select * from ship;
 
 --create pirate table
 CREATE OR REPLACE TABLE pirate
@@ -471,7 +472,7 @@ CREATE OR REPLACE TABLE pirate_weapons
 --insert pirate weapons from current load
 MERGE INTO pirate_weapons pw
 	USING ( SELECT pc.pirate_id AS pirate_id, wc.weapon_id, crew.* FROM (
-	SELECT  c.VALUE:name::STRING AS crew_name
+	SELECT  c.VALUE:name::STRING AS crew_nameSELE
 	, w.value::STRING AS crew_weapon_name
 	, p.__load_name
 	, p.__load_dts
